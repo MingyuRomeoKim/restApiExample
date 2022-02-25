@@ -17,11 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test',function (){
-   $users = \App\Models\User::first();
-   dd($users);
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
