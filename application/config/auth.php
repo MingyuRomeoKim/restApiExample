@@ -40,6 +40,12 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        // 인증 API request가 유입될 시 passport의 TokenGuard를 사용하게 하기 위해 guards api 인증 driver 옵션 지정.
+        'api' => [
+            'driver' => 'passport',
+            'provider' => 'users'
+        ],
     ],
 
     /*
