@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="table-bordered">
                         <h3>회원가입 요청</h3>
-                        <h6 style="color: red;">POST /api/v1/registers/</h6>
+                        <h6 style="color: red;">POST /api/v1/register/</h6>
                         <table class="table">
                             <tr class="table-info">
                                 <th>Path Parametter</th>
@@ -32,7 +32,7 @@
                             </tr>
                             <tr>
                                 <td>name</td>
-                                <td>String</td>
+                                <td>String(Min 4)</td>
                                 <td>사용자 이름</td>
                             </tr>
                             <tr>
@@ -56,9 +56,9 @@
                                 <th>Description</th>
                             </tr>
                             <tr>
-                                <td>id</td>
-                                <td>Number</td>
-                                <td>회원 아이디</td>
+                                <td>token</td>
+                                <td>String</td>
+                                <td>토큰값</td>
                             </tr>
                         </table>
                     </div>
@@ -68,8 +68,8 @@
                 <div class="card-header">{{ __('로그인') }}</div>
                 <div class="card-body">
                     <div class="table-bordered">
-                        <h3>로그인 요청(추후 토큰 기반 인증 방식 적용)</h3>
-                        <h6 style="color: red;">POST /api/v1/auth/login/{userEmail}/{userPassword}</h6>
+                        <h3>로그인 요청</h3>
+                        <h6 style="color: red;">POST /api/v1/login/</h6>
                         <table class="table">
                             <tr class="table-info">
                                 <th>Path Parametter</th>
@@ -88,14 +88,29 @@
                             </tr>
                         </table>
                     </div>
+                    <div class="table-bordered">
+                        <h3>로그인 응답</h3>
+                        <table class="table">
+                            <tr class="table-info">
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>token</td>
+                                <td>String</td>
+                                <td>토큰값</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="card">
                 <div class="card-header">{{ __('로그아웃') }}</div>
                 <div class="card-body">
                     <div class="table-bordered">
-                        <h3>로그아웃 요청(추후 토큰 기반 인증 방식 적용)</h3>
-                        <h6 style="color: red;">POST /api/v1/auth/logout/{userEmail}/</h6>
+                        <h3>로그아웃 요청</h3>
+                        <h6 style="color: red;">POST /api/v1/logout/</h6>
                         <table class="table">
                             <tr class="table-info">
                                 <th>Path Parametter</th>
@@ -103,11 +118,32 @@
                                 <th>Description</th>
                             </tr>
                             <tr>
-                                <td>email</td>
+                                <td>Authorization</td>
                                 <td>String</td>
-                                <td>유저 이메일</td>
+                                <td>"Bearer".$UserToken</td>
                             </tr>
                         </table>
+                    </div>
+                    <div class="table-bordered">
+                        <h3>로그인 응답</h3>
+                        <table class="table">
+                            <tr class="table-info">
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>error</td>
+                                <td>boolean</td>
+                                <td>true Or False</td>
+                            </tr>
+                            <tr>
+                                <td>message</td>
+                                <td>String</td>
+                                <td>로그인 성공여부</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="card">

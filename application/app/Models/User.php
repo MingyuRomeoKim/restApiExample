@@ -47,4 +47,9 @@ class User extends Authenticatable
         // 한명의 고객은 여러 주문을 할 수 있다.
         return $this->hasMany(Order::class);
     }
+
+    public function OauthAcessTokens()
+    {
+        return $this->hasMany(OauthAccessToken::class);
+    }
 }
