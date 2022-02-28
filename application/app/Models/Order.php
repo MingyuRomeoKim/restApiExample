@@ -17,7 +17,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product()
+    public function products()
     {
         // 한가지 주문으로 여러 상품을 시킬 수 있다.
         return $this->hasMany(Order::class);

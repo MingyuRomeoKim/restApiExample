@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Postman 해당 API 사용설명 첨부') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('https://www.getpostman.com/collections/162420687c6062663afe') }}
                 </div>
             </div>
 
@@ -51,14 +51,16 @@
                         <h3>회원가입 응답</h3>
                         <table class="table">
                             <tr class="table-info">
-                                <th>Field</th>
-                                <th>Type</th>
-                                <th>Description</th>
+                                <th>Json</th>
                             </tr>
                             <tr>
-                                <td>token</td>
-                                <td>String</td>
-                                <td>토큰값</td>
+                                <td>
+                                    <pre>
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOi...."
+}
+                                    </pre>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -92,14 +94,16 @@
                         <h3>로그인 응답</h3>
                         <table class="table">
                             <tr class="table-info">
-                                <th>Field</th>
-                                <th>Type</th>
-                                <th>Description</th>
+                                <th>Json</th>
                             </tr>
                             <tr>
-                                <td>token</td>
-                                <td>String</td>
-                                <td>토큰값</td>
+                                <td>
+                                    <pre>
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOi...."
+}
+                                    </pre>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -128,19 +132,18 @@
                         <h3>로그인 응답</h3>
                         <table class="table">
                             <tr class="table-info">
-                                <th>Field</th>
-                                <th>Type</th>
-                                <th>Description</th>
+                                <th>Json</th>
                             </tr>
+                            
                             <tr>
-                                <td>error</td>
-                                <td>boolean</td>
-                                <td>true Or False</td>
-                            </tr>
-                            <tr>
-                                <td>message</td>
-                                <td>String</td>
-                                <td>로그인 성공여부</td>
+                                <td>
+                                    <pre>
+{
+    "error": false,
+    "message": "User logout successfully."
+}                                        
+                                    </pre>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -198,19 +201,12 @@
                     <div class="table-bordered">
                         <h3>상품 주문 요청</h3>
                         <h6 style="color: red;">Post /api/v1/orders</h6> <br/>
-                        Request Fileds
                         <table class="table">
                             <tr class="table-info">
                                 <th>Field</th>
                                 <th>Type</th>
                                 <th>nullable</th>
                                 <th>description</th>
-                            </tr>
-                            <tr>
-                                <td>user_email</td>
-                                <td>String</td>
-                                <td>NOT NULL</td>
-                                <td>주문 고객 이메일</td>
                             </tr>
                             <tr>
                                 <td>product_id</td>
@@ -224,24 +220,34 @@
                         <h3>상품 주문 응답</h3>
                         <table class="table">
                             <tr class="table-info">
-                                <th>Field</th>
-                                <th>Type</th>
-                                <th>Description</th>
+                                <th>Json</th>
                             </tr>
                             <tr>
-                                <td>id</td>
-                                <td>Number</td>
-                                <td>주문 아이디</td>
+                                <td> 
+                                    <pre>
+{
+    "success": true,
+    "data": {
+        "user_email": "mingyu@test.com",
+        "product_id": "43",
+        "user_id": 2,
+        "updated_at": "2022-02-28T06:49:30.000000Z",
+        "created_at": "2022-02-28T06:49:30.000000Z",
+        "id": 6
+    }
+}
+                                    </pre>
+                                </td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('회원 주문 내역 조회') }}</div>
+                <div class="card-header">{{ __('회원 단건 주문 내역 조회') }}</div>
                 <div class="card-body">
                     <div class="table-bordered">
-                        <h3>주문조회 요청</h3>
+                        <h3>단건 주문조회 요청</h3>
                         <h6 style="color: red;">GET /api/v1/orders/{orderId}</h6>
                         <table class="table">
                             <tr class="table-info">
@@ -257,27 +263,108 @@
                         </table>
                     </div>
                     <div class="table-bordered">
-                        <h3>주문조회 응답</h3>
+                        <h3>응답</h3>
                         <table class="table">
                             <tr class="table-info">
-                                <th>Field</th>
-                                <th>Type</th>
+                                <th>JSON</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                <pre>
+{
+    "success": true,
+    "data": {
+        "id": 3,
+        "user_email": "mingyu@test.com",
+        "product_id": 24,
+        "created_at": "2022-02-28T06:12:49.000000Z",
+        "updated_at": "2022-02-28T06:12:49.000000Z",
+        "user_id": 2
+    }
+}
+                                    </pre>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">{{ __('회원 주문 내역 전체 조회') }}</div>
+                <div class="card-body">
+                    <div class="table-bordered">
+                        <h3>전체 주문조회 요청</h3>
+                        <h6 style="color: red;">GET /api/v1/orders/</h6>
+                        <table class="table">
+                            <tr class="table-info">
+                                <th>Path Parametter</th>
                                 <th>Description</th>
+                                <th>example</th>
                             </tr>
                             <tr>
-                                <td>id</td>
-                                <td>Number</td>
+                                <td>orderId</td>
                                 <td>주문 아이디</td>
+                                <td>localhost:8000/api/v1/orders/</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="table-bordered">
+                        <h3>응답</h3>
+                        <table class="table">
+                            <tr class="table-info">
+                                <th>JSON</th>
                             </tr>
                             <tr>
-                                <td>user_email</td>
-                                <td>String</td>
-                                <td>주문 고객 이메일</td>
-                            </tr>
-                            <tr>
-                                <td>OrderItemList</td>
-                                <td>Array</td>
-                                <td>주문 상품 정보</td>
+                                <td>
+                                <pre>
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "user_email": "mingyu@test.com",
+            "product_id": 3,
+            "created_at": "2022-02-28T06:12:26.000000Z",
+            "updated_at": "2022-02-28T06:12:26.000000Z",
+            "user_id": 2
+        },
+        {
+            "id": 2,
+            "user_email": "mingyu@test.com",
+            "product_id": 19,
+            "created_at": "2022-02-28T06:12:39.000000Z",
+            "updated_at": "2022-02-28T06:12:39.000000Z",
+            "user_id": 2
+        },
+        {
+            "id": 3,
+            "user_email": "mingyu@test.com",
+            "product_id": 24,
+            "created_at": "2022-02-28T06:12:49.000000Z",
+            "updated_at": "2022-02-28T06:12:49.000000Z",
+            "user_id": 2
+        },
+        {
+            "id": 5,
+            "user_email": "mingyu@test.com",
+            "product_id": 44,
+            "created_at": "2022-02-28T06:18:25.000000Z",
+            "updated_at": "2022-02-28T06:18:25.000000Z",
+            "user_id": 2
+        },
+        {
+            "id": 6,
+            "user_email": "mingyu@test.com",
+            "product_id": 43,
+            "created_at": "2022-02-28T06:49:30.000000Z",
+            "updated_at": "2022-02-28T06:49:30.000000Z",
+            "user_id": 2
+        }
+    ]
+}
+                                    </pre>
+                                </td>
                             </tr>
                         </table>
                     </div>
