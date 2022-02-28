@@ -17,7 +17,7 @@
                     {{ __('https://www.getpostman.com/collections/162420687c6062663afe') }}
                 </div>
             </div>
-
+<br/>
             <div class="card">
                 <div class="card-header">{{ __('회원가입') }}</div>
                 <div class="card-body">
@@ -66,6 +66,7 @@
                     </div>
                 </div>
             </div>
+<br/>
             <div class="card">
                 <div class="card-header">{{ __('로그인') }}</div>
                 <div class="card-body">
@@ -109,6 +110,7 @@
                     </div>
                 </div>
             </div>
+<br/>
             <div class="card">
                 <div class="card-header">{{ __('로그아웃') }}</div>
                 <div class="card-body">
@@ -149,12 +151,77 @@
                     </div>
                 </div>
             </div>
+<br/>
             <div class="card">
-                <div class="card-header">{{ __('상품 조회') }}</div>
+                <div class="card-header">{{ __('전체 상품 조회') }}</div>
                 <div class="card-body">
                     <div class="table-bordered">
-                        <h3>상품조회 요청</h3>
-                        <h6 style="color: red;">GET /api/v1/items/{itemId}</h6>
+                        <h3>전체 상품조회 요청</h3>
+                        <h6 style="color: red;">GET /api/v1/products/</h6>
+                        <table class="table">
+                            <tr class="table-info">
+                                <th>Path Parametter</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>example</th>
+                            </tr>
+                            <tr>
+                                <td>Authorization</td>
+                                <td>String</td>
+                                <td>"Bearer".$UserToken</td>
+                                <td>localhost:8000/api/v1/products/</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="table-bordered">
+                        <h3>응답</h3>
+                        <table class="table">
+                            <tr class="table-info">
+                                <th>Json</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <pre>
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "product283",
+            "price": 13949,
+            "created_at": "2022-02-28T03:17:15.000000Z",
+            "updated_at": "2022-02-28T03:17:15.000000Z"
+        },
+        {
+            "id": 2,
+            "name": "product181",
+            "price": 75657,
+            "created_at": "2022-02-28T03:17:15.000000Z",
+            "updated_at": "2022-02-28T03:17:15.000000Z"
+        },
+        {
+            "id": 3,
+            "name": "product768",
+            "price": 24634,
+            "created_at": "2022-02-28T03:17:15.000000Z",
+            "updated_at": "2022-02-28T03:17:15.000000Z"
+        }
+        .......
+}
+                                    </pre>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+<br/>
+            <div class="card">
+                <div class="card-header">{{ __('단건 상품 조회') }}</div>
+                <div class="card-body">
+                    <div class="table-bordered">
+                        <h3>단건 상품조회 요청</h3>
+                        <h6 style="color: red;">GET /api/v1/products/{productId}</h6>
                         <table class="table">
                             <tr class="table-info">
                                 <th>Path Parametter</th>
@@ -162,39 +229,44 @@
                                 <th>example</th>
                             </tr>
                             <tr>
-                                <td>itemId</td>
+                                <td>Authorization</td>
+                                <td>String</td>
+                                <td>"Bearer".$UserToken</td>
+                            </tr>
+                            <tr>
+                                <td>productId</td>
                                 <td>상품 아이디</td>
-                                <td>localhost:8000/api/v1/items/1</td>
+                                <td>localhost:8000/api/v1/products/1</td>
                             </tr>
                         </table>
                     </div>
                     <div class="table-bordered">
-                        <h3>상품조회 응답</h3>
+                        <h3>응답</h3>
                         <table class="table">
                             <tr class="table-info">
-                                <th>Field</th>
-                                <th>Type</th>
-                                <th>Description</th>
+                                <th>Json</th>
                             </tr>
                             <tr>
-                                <td>id</td>
-                                <td>Number</td>
-                                <td>상품 아이디</td>
-                            </tr>
-                            <tr>
-                                <td>name</td>
-                                <td>String</td>
-                                <td>상품 이름</td>
-                            </tr>
-                            <tr>
-                                <td>price</td>
-                                <td>Number</td>
-                                <td>상품 가격</td>
+                                <td>
+                                    <pre>
+{
+    "success": true,
+    "data": {
+        "id": 3,
+        "name": "product768",
+        "price": 24634,
+        "created_at": "2022-02-28T03:17:15.000000Z",
+        "updated_at": "2022-02-28T03:17:15.000000Z"
+    }
+}
+                                    </pre>
+                                </td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
+<br/>
             <div class="card">
                 <div class="card-header">{{ __('상품 주문') }}</div>
                 <div class="card-body">
@@ -243,6 +315,7 @@
                     </div>
                 </div>
             </div>
+<br/>
             <div class="card">
                 <div class="card-header">{{ __('회원 단건 주문 내역 조회') }}</div>
                 <div class="card-body">
@@ -289,7 +362,7 @@
                     </div>
                 </div>
             </div>
-
+<br/>
             <div class="card">
                 <div class="card-header">{{ __('회원 주문 내역 전체 조회') }}</div>
                 <div class="card-body">

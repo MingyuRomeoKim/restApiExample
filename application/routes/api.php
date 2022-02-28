@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +23,6 @@ Route::post('v1/login', [PassportAuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::post('v1/logout',  [PassportAuthController::class, 'logout']);
     Route::resource('v1/orders', OrderController::class);
+
+    Route::resource('v1/products',ProductController::class);
 });

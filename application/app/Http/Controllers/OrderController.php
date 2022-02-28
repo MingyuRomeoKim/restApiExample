@@ -15,9 +15,9 @@ class OrderController extends Controller
         // GET /api/v1/orders/
         $orders = auth()->user()->orders;
         if(!$orders) {
-            return response()->json([ 'success' => false, 'message' => 'We can not found orders list. Plz check your orders',401]);
+            return response()->json([ 'success' => false, 'message' => 'We can not found orders list. Plz check your orders'],401);
         }else{
-            return response()->json([ 'success' => true, 'data' => $orders,200]);
+            return response()->json([ 'success' => true, 'data' => $orders],200);
         }
     }
 
@@ -31,13 +31,13 @@ class OrderController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Post not found '
-            ], 400);
+            ], 401);
         }
  
         return response()->json([
             'success' => true,
             'data' => $orders->toArray()
-        ], 400);
+        ], 200);
     }
  
     public function store(Request $request)
