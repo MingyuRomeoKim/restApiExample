@@ -20,5 +20,5 @@ Route::post('v1/login', [PassportAuthController::class, 'login']);
 //Route::post('v1/logout',  [PassportAuthController::class, 'logout']);
 Route::middleware('auth:api')->group(function () {
     Route::post('v1/logout',  [PassportAuthController::class, 'logout']);
-    Route::resource('orders', OrderController::class);
+    Route::resource('v1/orders', OrderController::class);
 });
